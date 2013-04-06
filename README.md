@@ -1,4 +1,0 @@
-snake
-=====
-
-This is Snake.
