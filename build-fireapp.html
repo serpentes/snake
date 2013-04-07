@@ -11,6 +11,7 @@
     <meta property="og:url" content="http://snake.nisra.net/build-fireapp.html" />
     <meta property="og:image" content="http://www.gravatar.com/avatar/52e0f4064095e6659eb418d6fcc0094e" />
 
+    <link rel="stylesheet" type="text/css" href="stylesheets/prettify.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/bootswatch.css" />
@@ -36,21 +37,21 @@
             安裝過程參考：<a href="https://github.com/handlino/FireApp/wiki">Home · handlino/FireApp Wiki</a></p>
             <h3>Download Source Code</h3>
             <p>Fire.app 的 source code 是放在 <a href="https://github.com/handlino/FireApp/">GitHub</a> 上。</p>
-<pre># Install Git
+<pre class="prettyprint lang-bash"># Install Git
 $ sudo apt-get install git
 
 # Download Fire.app source code
 $ git clone https://github.com/handlino/FireApp.git</pre>
             <h3>Install JRuby</h3>
             <p>Fire.app 為了跨平台選擇用 Java 實作的 <a href="http://jruby.org/">JRuby</a>，所以要安裝 JRuby 和使用 Fire.app 都需要 <a href="http://openjdk.java.net/">JRE(Java Runtime Environment)</a>，不過 build Fire.app 還需要 compile 檔案，所以直接安裝 JDK(Java Development Kit) 就好，安裝 JRuby 還需要 <a href="https://rvm.io/">RVM</a> 而 Windows 沒有 RVM。</p>
-<pre># Install OpenJDK 7 JRE
+<pre class="prettyprint lang-bash"># Install OpenJDK 7 JRE
 $ sudo apt-get install jdk-7-jdk
 
 # Install cURL brefore install RVM
 $ sudo apt-get install curl
 $ curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3 --autolibs=enabled</pre>
             <p>使用 RVM 安裝 JRuby，還有設定 Fire.app 獨立的安裝環境：</p>
-<pre># Install JRuby
+<pre class="prettyprint"># Install JRuby
 $ rvm install jruby
 
 # Use JRuby (default is Ruby 1.9.3) 
@@ -63,16 +64,17 @@ $ rvm gemset create fireapp
 $ rvm use jruby@fireapp</pre>
             <h3>Install Bundler</h3>
             <p><a href="http://rubygems.org/">RubyGems</a> 是包裝、發佈 Ruby 程式庫的標準方式，而 <a href="http://gembundler.com/">Bundler</a> 是管理 RubyGems 相依性的工具。</p>
-<pre># Install Bundler
+<pre class="prettyprint"># Install Bundler
 $ gem install bundler
 
 # Install dependent gems
 $ bundle install</pre>
             <p>這個時候其實會出現一個問題，用 <code>gem list</code> 會發現 <a href="http://rawr.rubyforge.org/">Rawr</a> 這個 gem 沒有一起安裝，有找到解決辦法，可是原因我還不太清楚。</p>
-<pre># gem install rawr --source http://gems.neurogami.com</pre>
+<pre class="prettyprint lang-bash"># Install Rawr
+$ gem install rawr --source http://gems.neurogami.com</pre>
             <p>還有一個部分 Wiki 上沒有提到，這時候要更新 submodule，不然會有 gem 沒包到。更新 submodule 的時候要注意到如果沒有在 GitHub 新增 SSH Key 會更新失敗，如果不打算新增 SSH Key 可以先修改 .gitmodules 這個檔案。<br>
             參考：<a href="https://github.com/handlino/FireApp/issues/73">Got something wrong when watching directory</a></p>
-<pre># .gitmodules
+<pre class="prettyprint lang-bash"># .gitmodules
 [submodule "lib/ruby/common/tka-serve"]
   path = lib/ruby/common/tka-serve
   url = https://github.com/tka/serve.git
@@ -80,28 +82,28 @@ $ bundle install</pre>
   path = lib/ruby/common/tka-rack-coffee
   url = https://github.com/tka/rack-coffee</pre>
             <p>執行更新。</p>
-<pre># Initialize git submodule
+<pre class="prettyprint"># Initialize git submodule
 $ git submodule init
 
 # Update submodules
 $ git submodule update</pre>
             <h3>Build it</h3>
             <p><a href="http://rake.rubyforge.org/">RAKE</a> 也就是 Ruby Make 的意思。</p>
-<pre># Available tasks
+<pre class="prettyprint"># Available tasks
 $ jruby -S rake -T</pre>
             <p><code>jruby -S</code> -S 這個參數告訴 JRuby 去使用已經安裝好的 JRuby 版本，<code>rake -T</code> 會列出可以執行的 tasks。</p>
-<pre># Compile it, generate the Fire.app
+<pre class="prettyprint"># Compile it, generate the Fire.app
 $ jruby -S rake rawr:bundle:all</pre>
             <p>大功告成！<br>
             使用 <code>rawr:bundle:all</code> 就會 build 出 Linux, OSX, Windows 三種平台的 Fire.app，可以在 packages 目錄下面找到。</p>
             <h3>Run it</h3>
             <p>在 Ubuntu 要用 Fire.app 還要再安裝些工具，才能開始使用 Fire.app。<br>
             參考：<a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-managerr#ubuntu">Installing Node.js via package manager</a></p>
-<pre>sudo add-apt-repository ppa:chris-lea/node.js
+<pre class="prettyprint">sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install nodejs</pre>
             <p>參考：<a href="https://github.com/handlino/FireApp/wiki/Faq#how-to-use-fireapp-on-ubuntu-12041210">How to use Fire.app on Ubuntu 12.04/12.10?</a></p>
-<pre># Install configuration editor
+<pre class="prettyprint"># Install configuration editor
 $ sudo apt-get install dconf-tools
 
 # Set icon visiable
@@ -134,5 +136,20 @@ $ gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"</pre>
         </div>
       </div>
     </div>
+    <script type="text/javascript" src="javascripts/prettify.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        
+      (function(jQuery){
+        
+        jQuery( document ).ready( function() {
+            
+            prettyPrint();
+                
+              } );
+               
+              }(jQuery))
+                
+            </script>
   </body>
 </html>
