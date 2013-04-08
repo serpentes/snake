@@ -31,19 +31,19 @@
 
             <h1>Build Fire.app</h1>
             <hr>
-            <p>前陣子開始參加 <a href="http://rgba.tw/">RGBA</a>，很多參加者都在用 <a href="http://fireapp.handlino.com/">Fire.app</a>，有一次遇到一個 Windows 使用者的 Fire.app 有問題，原本想把我這邊的 Fire.app 給她一份，可是這樣好像不太對，所以萌生了自己 build 一個的想法。=P</p>
+            <p>前陣子開始參加 <a target="_blank" href="http://rgba.tw/">RGBA</a>，很多參加者都在用 <a target="_blank" href="http://fireapp.handlino.com/">Fire.app</a>，有一次遇到一個 Windows 使用者的 Fire.app 有問題，原本想把我這邊的 Fire.app 給她一份，可是這樣好像不太對，所以萌生了自己 build 一個的想法。=P</p>
             <p>失敗了幾次，最後終於成功 build 出來了，做個紀錄等到下次 Fire.app 升級就有筆記可以參考，身邊不多人用這軟體，有在用的朋友幾乎全部都是用買的，所以也沒聽說有朋友在 build 這個。XD</p>
-            <p>作業系統：<a href="http://www.ubuntu.com/">Ubuntu 12.04</a><br>
-            安裝過程參考：<a href="https://github.com/handlino/FireApp/wiki">Home · handlino/FireApp Wiki</a></p>
+            <p>作業系統：<a target="_blank" href="http://www.ubuntu.com/">Ubuntu 12.04</a><br>
+            安裝過程參考：<a target="_blank" href="https://github.com/handlino/FireApp/wiki">Home · handlino/FireApp Wiki</a></p>
             <h3>Download Source Code</h3>
-            <p>Fire.app 的 source code 是放在 <a href="https://github.com/handlino/FireApp/">GitHub</a> 上。</p>
+            <p>Fire.app 的 source code 是放在 <a target="_blank" href="https://github.com/handlino/FireApp/">GitHub</a> 上。</p>
 <pre class="prettyprint lang-bash"># Install Git
 $ sudo apt-get install git
 
 # Download Fire.app source code
 $ git clone https://github.com/handlino/FireApp.git</pre>
             <h3>Install JRuby</h3>
-            <p>Fire.app 為了跨平台選擇用 Java 實作的 <a href="http://jruby.org/">JRuby</a>，所以要安裝 JRuby 和使用 Fire.app 都需要 <a href="http://openjdk.java.net/">JRE(Java Runtime Environment)</a>，不過 build Fire.app 還需要 compile 檔案，所以直接安裝 JDK(Java Development Kit) 就好，安裝 JRuby 還需要 <a href="https://rvm.io/">RVM</a> 而 Windows 沒有 RVM。</p>
+            <p>Fire.app 為了跨平台選擇用 Java 實作的 <a target="_blank" href="http://jruby.org/">JRuby</a>，所以要安裝 JRuby 和使用 Fire.app 都需要 <a target="_blank" href="http://openjdk.java.net/">JRE(Java Runtime Environment)</a>，不過 build Fire.app 還需要 compile 檔案，所以直接安裝 JDK(Java Development Kit) 就好，安裝 JRuby 還需要 <a target="_blank" href="https://rvm.io/">RVM</a> 而 Windows 沒有 RVM。</p>
 <pre class="prettyprint lang-bash"># Install OpenJDK 7 JRE
 $ sudo apt-get install jdk-7-jdk
 
@@ -63,17 +63,17 @@ $ rvm gemset create fireapp
 # Change to the gemset of Fire.app
 $ rvm use jruby@fireapp</pre>
             <h3>Install Bundler</h3>
-            <p><a href="http://rubygems.org/">RubyGems</a> 是包裝、發佈 Ruby 程式庫的標準方式，而 <a href="http://gembundler.com/">Bundler</a> 是管理 RubyGems 相依性的工具。</p>
+            <p><a target="_blank" href="http://rubygems.org/">RubyGems</a> 是包裝、發佈 Ruby 程式庫的標準方式，而 <a target="_blank" href="http://gembundler.com/">Bundler</a> 是管理 RubyGems 相依性的工具。</p>
 <pre class="prettyprint"># Install Bundler
 $ gem install bundler
 
 # Install dependent gems
 $ bundle install</pre>
-            <p>這個時候其實會出現一個問題，用 <code>gem list</code> 會發現 <a href="http://rawr.rubyforge.org/">Rawr</a> 這個 gem 沒有一起安裝，有找到解決辦法，可是原因我還不太清楚。</p>
+            <p>這個時候其實會出現一個問題，用 <code>gem list</code> 會發現 <a target="_blank" href="http://rawr.rubyforge.org/">Rawr</a> 這個 gem 沒有一起安裝，有找到解決辦法，可是原因我還不太清楚。</p>
 <pre class="prettyprint lang-bash"># Install Rawr
 $ gem install rawr --source http://gems.neurogami.com</pre>
             <p>還有一個部分 Wiki 上沒有提到，這時候要更新 submodule，不然會有 gem 沒包到。更新 submodule 的時候要注意到如果沒有在 GitHub 新增 SSH Key 會更新失敗，如果不打算新增 SSH Key 可以先修改 .gitmodules 這個檔案。<br>
-            參考：<a href="https://github.com/handlino/FireApp/issues/73">Got something wrong when watching directory</a></p>
+            參考：<a target="_blank" href="https://github.com/handlino/FireApp/issues/73">Got something wrong when watching directory</a></p>
 <pre class="prettyprint lang-bash"># .gitmodules
 [submodule "lib/ruby/common/tka-serve"]
   path = lib/ruby/common/tka-serve
@@ -88,7 +88,7 @@ $ git submodule init
 # Update submodules
 $ git submodule update</pre>
             <h3>Build it</h3>
-            <p><a href="http://rake.rubyforge.org/">RAKE</a> 也就是 Ruby Make 的意思。</p>
+            <p><a target="_blank" href="http://rake.rubyforge.org/">RAKE</a> 也就是 Ruby Make 的意思。</p>
 <pre class="prettyprint"># Available tasks
 $ jruby -S rake -T</pre>
             <p><code>jruby -S</code> -S 這個參數告訴 JRuby 去使用已經安裝好的 JRuby 版本，<code>rake -T</code> 會列出可以執行的 tasks。</p>
@@ -98,11 +98,11 @@ $ jruby -S rake rawr:bundle:all</pre>
             使用 <code>rawr:bundle:all</code> 就會 build 出 Linux, OSX, Windows 三種平台的 Fire.app，可以在 packages 目錄下面找到。</p>
             <h3>Run it</h3>
             <p>在 Ubuntu 要用 Fire.app 還要再安裝些工具，才能開始使用 Fire.app。<br>
-            參考：<a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-managerr#ubuntu">Installing Node.js via package manager</a></p>
+            參考：<a target="_blank" href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-managerr#ubuntu">Installing Node.js via package manager</a></p>
 <pre class="prettyprint">sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install nodejs</pre>
-            <p>參考：<a href="https://github.com/handlino/FireApp/wiki/Faq#how-to-use-fireapp-on-ubuntu-12041210">How to use Fire.app on Ubuntu 12.04/12.10?</a></p>
+            <p>參考：<a target="_blank" href="https://github.com/handlino/FireApp/wiki/Faq#how-to-use-fireapp-on-ubuntu-12041210">How to use Fire.app on Ubuntu 12.04/12.10?</a></p>
 <pre class="prettyprint"># Install configuration editor
 $ sudo apt-get install dconf-tools
 
@@ -110,8 +110,8 @@ $ sudo apt-get install dconf-tools
 $ gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"</pre>
             <h3>Misc</h3>
             <p>最近有朋友碰到路徑裡有中文，可以 watch a folder，可是 compile sass 就會失敗。目前的 issues 只有看到 watch 到有中文路徑會出問題，也修好了，果然命名還是不該用中文。XD<br>
-            參考：<a href="https://github.com/handlino/FireApp/issues/78">新的 1120 發佈的 fireapp WIN 版 無法讀取中文路徑</a><br>
-            參考：<a href="https://github.com/handlino/FireApp/issues/81">Incompatible character encodings: ASCII-8BIT and UTF-8</a></p>
+            參考：<a target="_blank" href="https://github.com/handlino/FireApp/issues/78">新的 1120 發佈的 fireapp WIN 版 無法讀取中文路徑</a><br>
+            參考：<a target="_blank" href="https://github.com/handlino/FireApp/issues/81">Incompatible character encodings: ASCII-8BIT and UTF-8</a></p>
             <h3>The End</h3>
 
           </div>
