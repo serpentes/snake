@@ -1,4 +1,4 @@
-@import url('//fonts.googleapis.com/css?family=Josefin+Sans:300,400,700');
+@import url('//fonts.googleapis.com/css?family=Muli');
 
 /*!
  * Bootstrap v2.3.1
@@ -741,7 +741,7 @@ h4,
 h5,
 h6 {
   margin: 10px 0;
-  font-family: "Josefin Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   line-height: 20px;
   color: inherit;
@@ -6171,7 +6171,7 @@ hr {
 
 .navbar .brand {
   padding: 12px 20px 8px;
-  font-family: "Josefin Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
 
@@ -6181,7 +6181,7 @@ hr {
 
 .navbar .nav > li > a {
   padding: 13px 15px 6px;
-  font-family: "Josefin Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-shadow: none;
 }
@@ -6197,7 +6197,7 @@ hr {
 
 .navbar .navbar-text {
   padding: 13px 15px 7px;
-  font-family: "Josefin Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 19px;
   color: #999999;
 }
@@ -6216,7 +6216,7 @@ hr {
 }
 
 .navbar .dropdown-menu a {
-  font-family: "Josefin Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .navbar-inverse .navbar-inner {
@@ -6259,7 +6259,7 @@ hr {
 }
 
 div.subnav {
-  font-family: "Josefin Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #fefefe;
   background-image: none;
   border-bottom: 1px solid transparent;
@@ -6477,12 +6477,12 @@ div.subnav .nav > li.active > a:hover {
 
 .btn {
   padding-top: .6em;
-  font-family: "Josefin Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
 
 legend {
-  font-family: "Josefin Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-bottom: 1px solid #ddd;
 }
 
